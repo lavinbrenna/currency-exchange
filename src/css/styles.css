@@ -1,3 +1,27 @@
 body{
   background-color: green;
+  font-family: masqualero, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+.header{
+  font-family: masqualero-groove, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: #118C4F;
+  background-color:#FAF1d8;
+}
+.container-flex{
+  background-color: #faf1d8;
+  border: 5px solid #bd9b16;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+}
+iframe{
+  margin: auto;
+  display: block;
+  max-width: 50%;
+  border-radius: 10px;
 }

@@ -10,6 +10,8 @@ function clearFields() {
   $(".showErrors").text("");
   $("#usDollars").val("");
   $("select#currencyCode").val("default");
+  $(".exchangeOuput").text("");
+  $(".convertedMoney").text("");
 }
 
 function displayExchangeRate(q, rate) {
