@@ -10,17 +10,17 @@ function clearFields(){
   $('.showErrors').text("");
 }
 
-function displayExchangeRate(query,rate){
-  $(".exchangeOutput").text(`The exchange rate from USD to ${query} is ${rate}.`);
+function displayExchangeRate(q,rate){
+  $(".exchangeOutput").text(`The exchange rate from USD to ${q} is ${rate}.`);
 }
 
 function displayErrors(error){
   $('.showErrors').text(`${error}`);
 }
 
-function displayConvertedMoney(userMoney,query,rate){
-  let convertedAmount = userMoney / rate;
-  $('.convertedMoney').text(`$${userMoney} converted to ${query} is equal to ${convertedAmount.toFixed(2)} ${query}`);
+function displayConvertedMoney(money,q,rate){
+  let convertedAmount = parseFloat(money) / rate;
+  $('.convertedMoney').text(`$${money} converted to ${q} is equal to ${convertedAmount.toFixed(2)} ${q}`);
 }
 
 $(document).ready(function(){
@@ -33,14 +33,14 @@ $(document).ready(function(){
       $(".showErrors").text('Please enter a three letter currency code');
     }
     else if(userMoney === ""){
-      $(".showErrors").text('Please enter a valid number');
+      $(".showErrors").text('Please enter a valid dollar amount');
     }
     else{
       clearFields();
       CurrencyConversion.getRate(query)
         .then(function (currencyResponse){
           if(currencyResponse instanceof Error){
-            throw Error(`I'm sorry there was an ExchangeRate-API Error: ${currencyResponse}`);
+            throw Error(`I'm sorry there was an ExchangeRate-API ${currencyResponse}`);
           }
           const rate = currencyResponse.conversion_rate;
           displayExchangeRate(query, rate);
