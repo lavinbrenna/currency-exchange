@@ -26,19 +26,30 @@ function displayConvertedMoney(userMoney,query,rate){
 $(document).ready(function(){
   $('#convertMe').on('click', function(){
     let query = $('input#userCode').val();
+    console.log(query);
     let userMoney = $('input#userDollars').val();
-    clearFields();
-    CurrencyConversion.getRate(query)
-      .then(function (currencyResponse){
-        if(currencyResponse instanceof Error){
-          throw Error(`I'm sorry there was an ExchangeRate-API Error: ${currencyResponse.error} `);
-        }
-        const rate = currencyResponse.conversion_rate;
-        displayExchangeRate(query, rate);
-        displayConvertedMoney(userMoney, query, rate);
-      })
-      .catch(function (error){
-        displayErrors(error.message);
-      });
+    if(userMoney=== ""){
+      $('.showErrors').text('Please enter a valid number');
+    }else if(query === ""){
+      $(".showErrors").text('Please enter a three letter currency code');
+    }
+    else if((query === "") && (userMoney=== "")){
+      $('.showErrors').text('Please enter a number and three letter currency code!');
+    }else{
+      clearFields();
+      CurrencyConversion.getRate(query)
+        .then(function (currencyResponse){
+          if(currencyResponse instanceof Error){
+            console.log(currencyResponse);
+            throw Error(`I'm sorry there was an ExchangeRate-API Error: ${currencyResponse} `);
+          }
+          const rate = currencyResponse.conversion_rate;
+          displayExchangeRate(query, rate);
+          displayConvertedMoney(userMoney, query, rate);
+        })
+        .catch(function (error){
+          displayErrors(error);
+        });
+    }
   });
 });

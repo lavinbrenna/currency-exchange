@@ -15,4 +15,4 @@ export default class CurrencyConversion {
   }
 }
 
-//currency is divided not multiplied
+
