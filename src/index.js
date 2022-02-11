@@ -10,7 +10,7 @@ function clearFields() {
   $(".showErrors").text("");
   $("#usDollars").val("");
   $("select#currencyCode").val("default");
-  $(".exchangeOuput").text("");
+  $(".exchangeOutput").text("");
   $(".convertedMoney").text("");
 }
 
@@ -25,8 +25,15 @@ function displayErrors(error) {
 function displayConvertedMoney(money, q, rate) {
   let convertedAmount = parseFloat(money) / rate;
   $(".convertedMoney").text(
-    `$${money} converted to ${q} is equal to ${convertedAmount.toFixed(2)} ${q}`
+    `$${money} USD converted to ${q.toUpperCase()} is equal to ${convertedAmount.toFixed(2)} ${q}.`
   );
+}
+function displayConvertedFrom(money, q, rate){
+  let convertedFromAmount = parseFloat(money) * rate;
+  $(".convertedMoney").text(
+    `$${money} ${q.toUpperCase()} is equal to $${convertedFromAmount.toFixed(2)}USD.`
+  );
+
 }
 
 $(document).ready(function () {

@@ -25,3 +25,9 @@ iframe{
   max-width: 50%;
   border-radius: 10px;
 }
+button{
+  background-color:#bd9b16;
+  color: black;
+  border-radius: 10px;
+  
+}
