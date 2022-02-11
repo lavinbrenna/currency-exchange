@@ -20,13 +20,13 @@ function displayErrors(error){
 
 function displayConvertedMoney(userMoney,query,rate){
   let convertedAmount = userMoney / rate;
-  $('.convertedMoney').text(`$${userMoney} converted to ${query} is equal to ${convertedAmount} ${query}`);
+  $('.convertedMoney').text(`$${userMoney} converted to ${query} is equal to ${convertedAmount.toFixed(2)} ${query}`);
 }
 
 $(document).ready(function(){
   $('#convertMe').on('click', function(){
-    let query = $('#userCode').val();
-    let userMoney = $('#userDollars').val();
+    let query = $('input#userCode').val();
+    let userMoney = $('input#userDollars').val();
     clearFields();
     CurrencyConversion.getRate(query)
       .then(function (currencyResponse){
