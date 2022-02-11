@@ -13,11 +13,11 @@
       <input type="text" id="userCode">
       <button type="button" id="convertMe">Convert Me!</button>
     </div>
-    <div id="limitedInput">
       <label for="usDollars">Please enter an amount $:</label>
       <input type="number" id="usDollars">
       <label for="currencyCode">Please select a currency code: </label>
       <select id="currencyCode">
+        <option value="default">--Select--</option>
         <option value="AUD">Australian Dollar</option>
         <option value="BRL">Brazilian Real</option>
         <option value ="DJF">Djiboutian Franc</option>
@@ -36,7 +36,6 @@
         <option value="ZWL">Zimbabwean Dollar</option>
       </select>
       <button type="button" id="limitedConvert">Convert Me!</button>
-    </div>
     <div id="output">
       <p><span class="exchangeOutput"></span></p>
       <p><span class="convertedMoney"></span></p>
