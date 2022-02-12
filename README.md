@@ -1,8 +1,8 @@
-# _{Application Name}_
+# _Currency Exchange App_
 
 #### By _**Brenna Lavin**_
 
-#### _{Brief description of application}_
+#### _Going on a trip? Use this to quickly figure out currency conversion rates_
 
 ## Technologies Used
 
@@ -11,34 +11,32 @@
 * JavaScript
 * jQuery
 * BootStrap
-* Jest
-  
+* Webpack
+* Babel
+* ESlint
+
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This app was made to practice API calls, fetch statements and promises. It utilizes the ExchangeRate-API to convert currency using the most up to date currency rates. I've also included a small Spotify playlist with songs about money for your listening pleasure!_
 
 ## Setup/Installation Requirements
 
 * Clone git repository to local machine
 * Navigate to root folder using machine's command line or terminal window in VSCode
 * type ```$ npm install``` to install project dependencies
-* type ```$ npm run test``` to run developer tests
+* Navigate to the [ExchangeRate API](https://www.exchangerate-api.com/) and sign up for a free API Key
+* Create a .env file in the root folder of this directory and store your API key there as ```API_KEY = your_api_key_goes_here```
 * type ```$ npm run start``` to start live server and open in browser.
-* Else navigate to project via GH Pages link
-* [GH Pages](https://lavinbrenna.github.io/pizza-parlor/)
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* none
 
 ## License
 
 MIT License
 
-Copyright (c) [2022] [Brenna Lavin]
+Copyright (c) [2022] [Brenna Lavin](https://github.com/lavinbrenna)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
