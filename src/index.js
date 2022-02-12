@@ -5,6 +5,7 @@ import "./css/styles.css";
 import ConvertFrom from "./convertFrom.js";
 import ConvertTo from "./convertTo.js";
 
+//business logic
 function clearFields() {
   $("#userDollars").val("");
   $("#userCode").val("");
@@ -25,12 +26,23 @@ function displayErrors(error) {
   $(".showErrors").text(`${error}`);
 }
 
+function displayOutputErrors(m,q){
+  if(m === ""){
+    $(".showErrors").text("Please enter a valid dollar amount");
+  }else if (q === "" ||q === "default"){
+    $(".showErrors").text("Please select a currency code");
+  }
+  else{
+    $(".showErrors").text("Please enter a valid dollar amount and currency code");
+  }
+}
 function displayConvertedMoney(money, q, rate) {
   let convertedAmount = parseFloat(money) / rate;
   $(".convertedMoney").text(
     `$${money} USD converted to ${q.toUpperCase()} is equal to ${convertedAmount.toFixed(2)} ${q}.`
   );
 }
+
 function displayConvertedFrom(money, q, rate){
   let convertedFromAmount = parseFloat(money) * rate;
   $(".convertedMoney").text(
@@ -39,20 +51,16 @@ function displayConvertedFrom(money, q, rate){
 
 }
 
-
+//ui logic
 $(document).ready(function () {
   $('#entrySplash').show();
   $("#eyeEntrance").on('click', function(){
     $('#entrySplash').hide();
     $(".container-flex").show();
   });
-  $("#convertMe, #limitedConvert, #convertToUS").on("click", function () {
+  $("#convertMe ").on("click", function () {
     let query = $("input#userCode").val();
     let userMoney = $("input#userDollars").val();
-    let limitedQuery = $("select#currencyCode option:selected").val();
-    let usDollars = $("input#usDollars").val();
-    let convertToQuery = $("#convertFromCode").val();
-    let convertToDollars = $("#toUs").val();
     if (query != "" && userMoney != "") {
       clearFields();
       ConvertFrom.convertFrom(query)
@@ -69,7 +77,16 @@ $(document).ready(function () {
         .catch(function (error) {
           displayErrors(error);
         });
-    } else if (limitedQuery != "default" && usDollars != ""){
+    }else{
+      clearFields();
+      displayOutputErrors(userMoney, query);
+    }
+    clearFields();
+  });
+  $('#limitedConvert').on("click", function(){
+    let limitedQuery = $("select#currencyCode option:selected").val();
+    let usDollars = $("input#usDollars").val();
+    if (limitedQuery != "default" && usDollars != ""){
       clearFields();
       ConvertFrom.convertFrom(limitedQuery)
         .then(function (currencyResponse) {
@@ -85,7 +102,15 @@ $(document).ready(function () {
         .catch(function (error) {
           displayErrors(error);
         });
-    }else if(convertToQuery != "" && convertToDollars !=""){
+    }else{
+      clearFields();
+      displayOutputErrors(usDollars, limitedQuery);
+    }clearFields();
+  });
+  $("#convertToUS").on("click", function(){
+    let convertToQuery = $("#convertFromCode").val();
+    let convertToDollars = $("#toUs").val();
+    if(convertToQuery != "" && convertToDollars !=""){
       clearFields();
       ConvertTo.convertTo(convertToQuery)
         .then(function(currencyResponse){
@@ -99,12 +124,9 @@ $(document).ready(function () {
         .catch(function (error){
           displayErrors(error);
         });
-    }else if (userMoney === "" || usDollars === ""||convertToDollars === "") {
-      $(".showErrors").text("Please enter a valid dollar amount");
-    } else if (query === "" || limitedQuery === "default" || convertToQuery === "") {
-      $(".showErrors").text("Please select a currency code");
-    } else {
+    }else{
       clearFields();
-    }
+      displayOutputErrors(convertToDollars, convertToQuery);
+    }clearFields();
   });
 });
