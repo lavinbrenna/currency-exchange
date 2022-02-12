@@ -1,5 +1,5 @@
 body{
-  background-color: green;
+  background-color: #384c33;
   font-family: masqualero, sans-serif;
   font-weight: 800;
   font-style: normal;
@@ -9,11 +9,12 @@ body{
   font-weight: 400;
   font-style: normal;
   text-align: center;
-  color: #118C4F;
-  background-color:#FAF1d8;
+  color: #384c33;
+  background-color:#f4efe9;
 }
 .container-flex{
-  background-color: #faf1d8;
+  display:none;
+  background-color: #f4efe9;
   border: 5px solid #bd9b16;
   border-radius: 10px;
   margin: 15px;
@@ -29,5 +30,13 @@ button{
   background-color:#bd9b16;
   color: black;
   border-radius: 10px;
-  
+}
+#entrySplash{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#entrySplash:hover, #entrySplash:active{
+  filter:drop-shadow(0 0 92px #bd9b16);
 }

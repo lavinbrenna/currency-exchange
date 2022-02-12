@@ -1,5 +1,5 @@
-export default class CurrencyConversion {
-  static async getRate(query) {
+export default class ConvertFrom {
+  static async convertFrom(query) {
     return fetch(
       `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${query}`
     )

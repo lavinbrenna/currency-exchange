@@ -5,6 +5,9 @@
   <title>Currency Conversion</title>
 </head>
 <body>
+  <div id="entrySplash">
+    <img src="./../assets/eye.png" id="eyeEntrance">
+  </div>
   <div class="container-flex">
     <div class="header"><h1>$$ Currency Exchange $$</h1></div>
     <div id="input">
@@ -13,7 +16,7 @@
       <input type ="number" id="userDollars"><br>
       <label for="userCode">Please enter a three letter currency code(ex: GBP, JPY) :</label>
       <input type="text" id="userCode"><br>
-      <button type="button" id="convertMe">Convert Me!</button>
+      <button type="button" id="convertMe">Convert Me</button>
       <hr>
       <label for="usDollars">Please enter an amount $:</label>
       <input type="number" id="usDollars"><br>
@@ -37,15 +40,13 @@
         <option value="ZAR">South African Rand</option>
         <option value="ZWL">Zimbabwean Dollar</option>
       </select><br>
-      <button type="button" id="limitedConvert">Convert Me!</button>
+      <button type="button" id="limitedConvert">Convert Me</button>
       <hr>
-    </div>
-    <div id="convertToUS">
       <label for="toUs">Please enter an amount to convert to USD $:</label>
       <input type="number" id="toUs"><br>
       <label for="convertFromCode">Please enter a three letter currency code: </label>
       <input type="text" id="convertFromCode"><br>
-      <button type="button" id="convertToUS">Convert to USD!</button>
+      <button type="button" id="convertToUS">Convert to USD</button>
     </div>
     <div id="output">
       <p><span class="exchangeOutput"></span></p>
@@ -53,7 +54,7 @@
     </div>
     <div class="showErrors">
     </div>
-    <iframe src="https://open.spotify.com/embed/playlist/7JNU4IfORBaxhOp5y0Vwk1?utm_source=generator&theme=0" width="50%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <div id="spotify"><iframe src="https://open.spotify.com/embed/playlist/7JNU4IfORBaxhOp5y0Vwk1?utm_source=generator&theme=0" width="50%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
   </div>
 </body>
 </html>
